@@ -1,0 +1,5 @@
+.venv/
+.env
+generated_images/
+image_generation.log
+key.json
