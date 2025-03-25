@@ -71,7 +71,7 @@ class LeonardoImageGenerator:
         # Ensure local save path exists
         os.makedirs(LOCAL_SAVE_PATH, exist_ok=True)
 
-    def generate_image(self, prompt, width=1472, height=832):
+    def generate_image(self, prompt, width=896, height=1192):
         """
         Generate an image with comprehensive error handling
         """
@@ -201,8 +201,8 @@ def generate_image_endpoint():
             return jsonify({'error': 'A prompt is required'}), 400
 
         prompt = data['prompt']
-        width = min(data.get('width', 1472), 1536)
-        height = min(data.get('height', 832), 1536)
+        width = min(data.get('width', 896), 900)
+        height = min(data.get('height', 1192), 1536)
 
         generated_image = image_generator.generate_image(prompt, width, height)
         if not generated_image:
